@@ -11,153 +11,163 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* ---------- Theme (colours sampled from the live contact page) ---------- */
 :root{
-  --ink:#1E1B2E;          /* site theme colour */
-  --ink-deep:#151222;
-  --panel:#2A2640;
-  --line:#3E3860;
-  --gold:#D8B565;
-  --gold-soft:rgba(216,181,101,.14);
-  --text:#F4F1EA;
-  --muted:#B8B3CE;
-  --wa:#25D366;
+  --sand:#F0E6D2;      /* page background */
+  --cream:#FAF7F0;     /* header, side panels */
+  --white:#FFFFFF;     /* cards */
+  --line:#E0D0AD;     /* borders */
+  --ink:#1D1B2D;       /* headings and body text */
+  --muted:#696274;     /* supporting text */
+  --bronze:#995A29;    /* links, focus, radio, active nav */
+  --gold:#D4A13B;      /* logo gold */
+  --wa:#65D072;        /* WhatsApp button */
+  --wa-ink:#1B3C22;
+  --footer:#1E1B2E;    /* site theme-color */
+
+  /* Fonts: Cormorant Garamond for headings, Manrope for everything else */
   --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
-  --sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --r:16px;
+  --sans:Manrope,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+
+  /* Type scale */
+  --fs-body:16px;
+  --fs-lead:clamp(16px,2.1vw,18px);
+  --fs-h1:clamp(36px,5.6vw,54px);
+  --fs-h2:clamp(27px,3.2vw,32px);
+  --fs-h3:16px;
+  --fs-small:14px;
+  --fs-btn:15px;
+
+  --radius:16px;
+  --radius-field:12px;
+  --container:1120px;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0;min-height:100vh;display:flex;flex-direction:column;
-  font-family:var(--sans);font-size:16px;line-height:1.65;color:var(--text);
-  background:var(--ink);position:relative;overflow-x:hidden;
+  font-family:var(--sans);font-size:var(--fs-body);line-height:1.6;font-weight:400;
+  color:var(--ink);background:var(--sand);position:relative;overflow-x:hidden;
 }
-/* Vastu grid backdrop, faded toward the edges */
+/* faint Vastu grid, fading out toward the edges */
 body::before{
   content:"";position:absolute;inset:0;pointer-events:none;
   background-image:
-    linear-gradient(var(--gold-soft) 1px,transparent 1px),
-    linear-gradient(90deg,var(--gold-soft) 1px,transparent 1px);
+    linear-gradient(rgba(153,90,41,.09) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(153,90,41,.09) 1px,transparent 1px);
   background-size:72px 72px;
-  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 38%,#000 0%,transparent 75%);
-          mask-image:radial-gradient(ellipse 70% 60% at 50% 38%,#000 0%,transparent 75%);
-  opacity:.55;
-}
-body::after{
-  content:"";position:absolute;left:50%;top:-180px;width:900px;height:620px;transform:translateX(-50%);
-  background:radial-gradient(closest-side,rgba(216,181,101,.13),transparent);pointer-events:none;
+  -webkit-mask-image:radial-gradient(ellipse 65% 55% at 50% 30%,#000 0%,transparent 75%);
+          mask-image:radial-gradient(ellipse 65% 55% at 50% 30%,#000 0%,transparent 75%);
 }
 a{color:inherit}
-.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+.wrap{width:100%;max-width:var(--container);margin:0 auto;padding:0 20px;position:relative;z-index:1}
 
-/* header */
-.top{position:relative;z-index:2;padding-top:env(safe-area-inset-top)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:18px;padding-bottom:18px}
-.logo{background:#fff;border-radius:10px;padding:8px 14px;display:inline-flex}
-.logo img{height:38px;width:auto;display:block}
-.top-link{font-size:14px;color:var(--muted);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
-.top-link:hover{color:var(--gold)}
+/* ---------- Header ---------- */
+.top{position:relative;z-index:3;background:var(--cream);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:14px;padding-bottom:14px}
+.logo{display:inline-flex;align-items:center;flex:none}
+.logo img{height:46px;width:auto;display:block}
+.nav{display:flex;align-items:center;gap:34px;margin:0 auto}
+.nav a{font-weight:500;font-size:16px;text-decoration:none;color:var(--ink);padding:10px 0}
+.nav a:hover{color:var(--bronze)}
+.nav a[aria-current]{color:var(--bronze)}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 26px;
+  border-radius:999px;font:600 var(--fs-btn)/1 var(--sans);text-decoration:none;
+  border:1.5px solid transparent;transition:transform .15s,box-shadow .15s,background .15s;
+}
+.btn svg{width:20px;height:20px;flex:none}
+.btn:hover{transform:translateY(-1px)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--bronze);outline-offset:3px;border-radius:10px}
+.btn-wa{background:var(--wa);color:var(--wa-ink);box-shadow:0 8px 22px rgba(101,208,114,.38)}
+.btn-wa:hover{background:#74DA80;box-shadow:0 10px 26px rgba(101,208,114,.5)}
+.btn-call{background:var(--white);border-color:var(--bronze);color:var(--bronze)}
+.btn-call:hover{background:var(--cream)}
+.btn-sm{min-height:44px;padding:0 20px}
+
+/* ---------- Layout ---------- */
+main{flex:1;position:relative;z-index:1;padding:36px 0 64px}
+.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(24px,4vw,44px)}
+.card.cream{background:var(--cream)}
 
 /* hero */
-main{flex:1;position:relative;z-index:1;padding:24px 0 56px}
-.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:clamp(24px,4vw,44px)}
-.hero{position:relative;overflow:hidden}
-.hero::after{ /* gold corner mark */
-  content:"";position:absolute;top:0;left:0;width:64px;height:3px;background:var(--gold);
-}
-
-.seal{width:96px;height:96px;margin:0 0 24px;display:block}
-.seal *{fill:none;stroke:var(--gold);stroke-linecap:round;stroke-linejoin:round}
-.seal .grid-l{stroke-width:1.2;opacity:.55}
+.seal{width:92px;height:92px;margin:0 0 22px;display:block}
+.seal *{fill:none;stroke:var(--bronze);stroke-linecap:round;stroke-linejoin:round}
+.seal .grid-l{stroke-width:1.2;opacity:.5}
 .seal .frame{stroke-width:2}
-.seal .tick{stroke-width:4;stroke:var(--text)}
+.seal .tick{stroke-width:4.5;stroke:var(--ink)}
 .d{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .9s cubic-bezier(.6,.1,.2,1) forwards}
 .d1{animation-delay:.1s}.d2{animation-delay:.35s}.d3{animation-delay:.85s;animation-duration:.55s}
 @keyframes draw{to{stroke-dashoffset:0}}
 
-h1{
-  font-family:var(--serif);font-weight:600;letter-spacing:-.01em;
-  font-size:clamp(34px,6vw,54px);line-height:1.08;margin:0 0 16px;
-}
-.lead{margin:0 0 28px;max-width:52ch;color:var(--muted);font-size:clamp(16px,2.2vw,18px)}
-.lead strong{color:var(--text);font-weight:500}
-
+h1,h2{font-family:var(--serif);font-weight:600;color:var(--ink);letter-spacing:-.005em}
+h1{font-size:var(--fs-h1);line-height:1.08;margin:0 0 16px}
+h2{font-size:var(--fs-h2);line-height:1.15;margin:0 0 22px}
+.lead{margin:0 0 28px;max-width:52ch;color:var(--muted);font-size:var(--fs-lead);line-height:1.65}
+.lead strong{color:var(--ink);font-weight:600}
 .actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;
-  padding:0 24px;border-radius:12px;font:600 15px/1 var(--sans);text-decoration:none;
-  border:1.5px solid transparent;transition:transform .15s,background .15s,border-color .15s;
-}
-.btn svg{width:20px;height:20px;flex:none}
-.btn:hover{transform:translateY(-1px)}
-.btn:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:8px}
-.btn-wa{background:var(--wa);color:#07260F}
-.btn-wa:hover{background:#43E383}
-.btn-call{border-color:var(--gold);color:var(--gold)}
-.btn-call:hover{background:var(--gold-soft)}
-
 .hours{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
-.hours li{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 14px;background:var(--ink)}
+.hours li{font-size:13px;font-weight:500;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 14px;background:var(--cream)}
 
 /* steps */
-.steps h2,.send h2{font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.4vw,32px);line-height:1.15;margin:0 0 22px}
 .steps ol{list-style:none;margin:0;padding:0;counter-reset:s}
 .steps li{position:relative;padding:0 0 24px 54px;counter-increment:s}
 .steps li:last-child{padding-bottom:0}
 .steps li::before{
   content:counter(s);position:absolute;left:0;top:0;width:36px;height:36px;border-radius:50%;
-  display:grid;place-items:center;font:600 14px var(--sans);color:var(--ink);background:var(--gold);
+  display:grid;place-items:center;font:700 14px var(--sans);color:#fff;background:var(--bronze);
 }
 .steps li::after{content:"";position:absolute;left:17px;top:42px;bottom:6px;width:2px;background:var(--line)}
 .steps li:last-child::after{display:none}
-.steps h3{margin:2px 0 2px;font-size:16px;font-weight:600}
-.steps p{margin:0;font-size:14.5px;color:var(--muted)}
-.note{margin:26px 0 0;padding-top:20px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.steps h3{margin:2px 0 2px;font-size:var(--fs-h3);font-weight:600}
+.steps p{margin:0;font-size:15px;color:var(--muted)}
+.note{margin:26px 0 0;padding-top:20px;border-top:1px solid var(--line);font-size:var(--fs-small);color:var(--muted)}
 
 /* what to send */
 .send{margin-top:28px}
 .send-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.item{background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:20px 18px}
-.item svg{width:28px;height:28px;stroke:var(--gold);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-bottom:12px}
-.item h3{margin:0 0 6px;font-size:15px;font-weight:600}
-.item p{margin:0;font-size:14px;color:var(--muted)}
+.item{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius-field);padding:20px 18px}
+.item svg{width:28px;height:28px;stroke:var(--bronze);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-bottom:12px}
+.item h3{margin:0 0 6px;font-size:var(--fs-h3);font-weight:600}
+.item p{margin:0;font-size:var(--fs-small);color:var(--muted)}
 
 /* trust + quote */
 .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
-.trust div{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--muted)}
-.trust svg{width:22px;height:22px;flex:none;stroke:var(--gold);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
-.trust b{display:block;color:var(--text);font-weight:500}
-.quote{
-  text-align:center;margin:44px auto 0;max-width:640px;
-  font-family:var(--serif);font-size:clamp(22px,3.4vw,30px);line-height:1.3;color:var(--text);
+.trust div{display:flex;gap:12px;align-items:flex-start;font-size:var(--fs-small);color:var(--muted)}
+.trust svg{width:22px;height:22px;flex:none;stroke:var(--bronze);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+.trust b{display:block;color:var(--ink);font-weight:600}
+.quote{text-align:center;margin:44px auto 0;max-width:640px;font-family:var(--serif);font-weight:600;font-size:clamp(23px,3.4vw,31px);line-height:1.3;color:var(--ink)}
+.quote small{display:block;margin-top:10px;font:500 13px var(--sans);color:var(--muted)}
+.links{margin:24px 0 0;text-align:center;font-size:var(--fs-small);font-weight:500}
+.links a{color:var(--bronze);text-underline-offset:4px;margin:0 10px;display:inline-block;padding:6px 0}
+
+/* ---------- Footer ---------- */
+footer{position:relative;z-index:1;background:var(--footer);color:#CFCAE0;padding:24px 0 calc(24px + env(safe-area-inset-bottom));font-size:13px;text-align:center}
+footer a{color:var(--gold);text-underline-offset:3px}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1020px){
+  .nav{display:none}
+  .bar{justify-content:space-between}
 }
-.quote small{display:block;margin-top:10px;font:400 13px var(--sans);color:var(--muted)}
-
-.links{margin:26px 0 0;text-align:center;font-size:14px;color:var(--muted)}
-.links a{color:var(--gold);text-underline-offset:4px;margin:0 8px;display:inline-block;padding:6px 0}
-
-footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:22px 0 calc(22px + env(safe-area-inset-bottom));font-size:13px;color:var(--muted);text-align:center;background:var(--ink-deep)}
-footer a{color:var(--muted);text-underline-offset:3px}
-
-/* responsive */
-@media (max-width:960px){
-  .send-grid{grid-template-columns:repeat(2,1fr)}
-}
+@media (max-width:960px){.send-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:860px){
   .grid{grid-template-columns:1fr}
   .trust{grid-template-columns:1fr}
 }
 @media (max-width:560px){
   .wrap{padding:0 16px}
-  .top-link{display:none}
-  .logo img{height:32px}
+  .logo img{height:40px}
   .actions .btn{width:100%}
   .send-grid{grid-template-columns:1fr}
-  main{padding-bottom:40px}
+  main{padding:24px 0 44px}
+  .btn-top span.long{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   .d{animation:none;stroke-dashoffset:0}
@@ -172,11 +182,23 @@ footer a{color:var(--muted);text-underline-offset:3px}
 <body>
 
 <header class="top">
-  <div class="wrap">
+  <div class="wrap bar">
     <a class="logo" href="https://kavachconsultancy.com/" aria-label="Kavach Consultancy home">
-      <img src="https://kavachconsultancy.com/assets/img/logo-horizontal.png" alt="Kavach Consultancy" height="38">
+      <img src="https://kavachconsultancy.com/assets/img/logo-horizontal.png" alt="Kavach Consultancy">
     </a>
-    <a class="top-link" href="https://kavachconsultancy.com/">Back to website</a>
+    <nav class="nav" aria-label="Main">
+      <a href="https://kavachconsultancy.com/services/#vastu">Vastu</a>
+      <a href="https://kavachconsultancy.com/vedic-astrologer-dubai/">Astrology</a>
+      <a href="https://kavachconsultancy.com/about-vedang-joshi/">About</a>
+      <a href="https://kavachconsultancy.com/reviews-case-studies/">Reviews</a>
+      <a href="https://kavachconsultancy.com/guides/">Guides</a>
+      <a href="https://kavachconsultancy.com/faq/">FAQ</a>
+      <a href="https://kavachconsultancy.com/contact-us/" aria-current="page">Contact</a>
+    </nav>
+    <a class="btn btn-wa btn-sm btn-top" href="https://wa.me/971564527299?text=Hi%20Vedang%2C%20I%20found%20Kavach%20on%20your%20website%20and%20would%20like%20a%20Vastu%20consultation.">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 1-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.4z"/></svg>
+      <span>Chat<span class="long"> on WhatsApp</span></span>
+    </a>
   </div>
 </header>
 
@@ -184,8 +206,7 @@ footer a{color:var(--muted);text-underline-offset:3px}
   <div class="wrap">
 
     <div class="grid">
-      <!-- confirmation -->
-      <section class="panel hero" aria-labelledby="ty-title">
+      <section class="card" aria-labelledby="ty-title">
         <svg class="seal" viewBox="0 0 96 96" role="img" aria-label="Enquiry received">
           <rect class="frame d d1" pathLength="1" x="8" y="8" width="80" height="80" rx="4"/>
           <path class="grid-l d d2" pathLength="1" d="M34.7 8v80M61.3 8v80M8 34.7h80M8 61.3h80"/>
@@ -213,8 +234,7 @@ footer a{color:var(--muted);text-underline-offset:3px}
         </ul>
       </section>
 
-      <!-- what happens next -->
-      <section class="panel steps" aria-labelledby="next-title">
+      <section class="card cream steps" aria-labelledby="next-title">
         <h2 id="next-title">What happens next</h2>
         <ol>
           <li>
@@ -238,14 +258,13 @@ footer a{color:var(--muted);text-underline-offset:3px}
       </section>
     </div>
 
-    <!-- what to send -->
-    <section class="panel send" aria-labelledby="send-title">
-      <h2 id="send-title">Send these to speed things up</h2>
+    <section class="card send" aria-labelledby="send-title">
+      <h2 id="send-title">What to include</h2>
       <div class="send-grid">
         <div class="item">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
           <h3>For Vastu</h3>
-          <p>A floor plan or photos (a screenshot is fine) and your main door direction, if you know it.</p>
+          <p>A floor plan or photos (a screenshot is fine) and the direction of your main door if you know it.</p>
         </div>
         <div class="item">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2"/></svg>
@@ -260,12 +279,11 @@ footer a{color:var(--muted);text-underline-offset:3px}
         <div class="item">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"/></svg>
           <h3>For astrology</h3>
-          <p>What you'd like guidance on. We collect birth details privately, later.</p>
+          <p>What you'd like guidance on. Birth details are collected later, privately.</p>
         </div>
       </div>
     </section>
 
-    <!-- trust -->
     <div class="trust">
       <div>
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
