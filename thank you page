@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thank you | Kavach Consultancy</title>
+<meta name="description" content="Your enquiry has reached Kavach Consultancy. We usually reply within 2 hours during working hours.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1E1B2E">
+<link rel="canonical" href="https://kavachconsultancy.com/thank-you/">
+<style>
+:root{
+  --ink:#1E1B2E;
+  --ink-2:#2A2640;
+  --ink-3:#383353;
+  --gold:#D4AF5F;
+  --gold-d:#B8923F;
+  --text:#F3F0E8;
+  --muted:#B9B5CC;
+  --wa:#25D366;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--ink);color:var(--text);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit}
+.top{background:#fff;padding:14px 20px;display:flex;justify-content:center;border-bottom:3px solid var(--gold)}
+.top img{height:44px;width:auto;display:block}
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:48px 20px}
+.card{width:100%;max-width:620px;background:var(--ink-2);border:1px solid var(--ink-3);border-radius:14px;padding:44px 36px;text-align:center}
+.seal{width:68px;height:68px;margin:0 auto 22px;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center}
+.seal svg{width:30px;height:30px;stroke:var(--gold);fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(28px,5vw,38px);line-height:1.2;margin:0 0 14px}
+.lead{margin:0 auto 28px;max-width:46ch;color:var(--muted);font-size:17px}
+.lead strong{color:var(--text);font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:34px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid transparent;transition:background .15s,border-color .15s}
+.btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.btn-wa{background:var(--wa);color:#0B2A17}
+.btn-wa:hover{background:#3BE07C}
+.btn-line{border-color:var(--gold);color:var(--gold)}
+.btn-line:hover{background:rgba(212,175,95,.12)}
+.next{text-align:left;border-top:1px solid var(--ink-3);padding-top:26px}
+.next h2{font-size:16px;font-weight:600;margin:0 0 12px;color:var(--gold)}
+.next ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.next li{padding-left:22px;position:relative;color:var(--muted);font-size:15px}
+.next li::before{content:"";position:absolute;left:2px;top:.6em;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.next li b{color:var(--text);font-weight:600}
+.links{margin-top:28px;font-size:14px;color:var(--muted)}
+.links a{color:var(--gold);text-underline-offset:3px}
+footer{padding:20px;text-align:center;font-size:13px;color:var(--muted);border-top:1px solid var(--ink-3)}
+footer a{color:var(--muted)}
+@media (max-width:480px){.card{padding:34px 20px}.btn{width:100%;justify-content:center}}
+@media (prefers-reduced-motion:no-preference){.card{animation:rise .45s ease-out both}@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}}
+</style>
+
+<!-- Conversion tracking: paste your GA4 / Google Ads / Meta Pixel snippet here.
+     Example (GA4): <script>gtag('event','generate_lead');</script> -->
+</head>
+<body>
+
+<header class="top">
+  <a href="https://kavachconsultancy.com/" aria-label="Kavach Consultancy home">
+    <img src="https://kavachconsultancy.com/assets/img/logo-horizontal.png" alt="Kavach Consultancy" height="44">
+  </a>
+</header>
+
+<main id="main">
+  <section class="card" aria-labelledby="ty-title">
+    <div class="seal" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+    </div>
+
+    <h1 id="ty-title">Thank you, we've got your enquiry</h1>
+    <p class="lead">We'll reply on WhatsApp, usually <strong>within 2 hours</strong> during working hours (Monday to Saturday, 9 am to 8 pm UAE time). Messages sent outside those hours are answered the next working morning.</p>
+
+    <div class="actions">
+      <a class="btn btn-wa" href="https://wa.me/971564527299?text=Hi%20Vedang%2C%20I%20just%20sent%20an%20enquiry%20on%20your%20website.">Chat on WhatsApp</a>
+      <a class="btn btn-line" href="tel:+971564527299">Call +971 56 452 7299</a>
+    </div>
+
+    <div class="next">
+      <h2>To speed things up, send us</h2>
+      <ul>
+        <li><b>For Vastu:</b> a floor plan or photos (a screenshot is fine) and your main door direction, if you know it.</li>
+        <li><b>For a property purchase:</b> the project name, unit number and any booking deadline.</li>
+        <li><b>For business:</b> your business type, fit-out stage and opening date.</li>
+        <li><b>For astrology:</b> what you'd like guidance on. We collect birth details privately, later.</li>
+      </ul>
+    </div>
+
+    <p class="links">
+      <a href="https://kavachconsultancy.com/">Back to home</a> &nbsp;·&nbsp;
+      <a href="https://kavachconsultancy.com/guides/">Read our guides</a> &nbsp;·&nbsp;
+      <a href="https://kavachconsultancy.com/faq/">FAQ</a>
+    </p>
+  </section>
+</main>
+
+<footer>
+  © 2026 Kavach Consultancy · Your details stay confidential ·
+  <a href="https://kavachconsultancy.com/privacy-policy/">Privacy policy</a>
+</footer>
+
+<script>
+/* OPTIONAL: block direct visits so only real submissions see this page.
+   1) On /contact-us, right before redirecting:  sessionStorage.setItem('formSubmitted','1');
+   2) Then uncomment the lines below.
+
+if (!sessionStorage.getItem('formSubmitted')) { location.replace('/contact-us/'); }
+else { sessionStorage.removeItem('formSubmitted'); }
+*/
+</script>
+</body>
+</html>
