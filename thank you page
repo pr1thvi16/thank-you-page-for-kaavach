@@ -14,7 +14,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ---------- Theme (colours sampled from the live contact page) ---------- */
 :root{
   --sand:#F0E6D2;      /* page background */
   --cream:#FAF7F0;     /* header, side panels */
@@ -26,9 +25,13 @@
   --gold:#D4A13B;      /* logo gold */
   --wa:#65D072;        /* WhatsApp button */
   --wa-ink:#1B3C22;
-  --footer:#1E1B2E;    /* site theme-color */
+  --footer:#1D1B2D;    /* footer background */
+  --amber:#C68938;     /* footer top rule */
+  --foot-text:#E7E2D7;
+  --foot-gold:#E7B547; /* footer column headings */
+  --foot-line:#2F2D3D;
+  --foot-muted:#A69FB1;
 
-  /* Fonts: Cormorant Garamond for headings, Manrope for everything else */
   --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
   --sans:Manrope,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 
@@ -52,7 +55,6 @@ body{
   font-family:var(--sans);font-size:var(--fs-body);line-height:1.6;font-weight:400;
   color:var(--ink);background:var(--sand);position:relative;overflow-x:hidden;
 }
-/* faint Vastu grid, fading out toward the edges */
 body::before{
   content:"";position:absolute;inset:0;pointer-events:none;
   background-image:
@@ -65,7 +67,6 @@ body::before{
 a{color:inherit}
 .wrap{width:100%;max-width:var(--container);margin:0 auto;padding:0 20px;position:relative;z-index:1}
 
-/* ---------- Header ---------- */
 .top{position:relative;z-index:3;background:var(--cream);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:14px;padding-bottom:14px}
 .logo{display:inline-flex;align-items:center;flex:none}
@@ -75,7 +76,6 @@ a{color:inherit}
 .nav a:hover{color:var(--bronze)}
 .nav a[aria-current]{color:var(--bronze)}
 
-/* ---------- Buttons ---------- */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 26px;
   border-radius:999px;font:600 var(--fs-btn)/1 var(--sans);text-decoration:none;
@@ -90,13 +90,11 @@ a{color:inherit}
 .btn-call:hover{background:var(--cream)}
 .btn-sm{min-height:44px;padding:0 20px}
 
-/* ---------- Layout ---------- */
 main{flex:1;position:relative;z-index:1;padding:36px 0 64px}
 .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start}
 .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(24px,4vw,44px)}
 .card.cream{background:var(--cream)}
 
-/* hero */
 .seal{width:92px;height:92px;margin:0 0 22px;display:block}
 .seal *{fill:none;stroke:var(--bronze);stroke-linecap:round;stroke-linejoin:round}
 .seal .grid-l{stroke-width:1.2;opacity:.5}
@@ -115,7 +113,6 @@ h2{font-size:var(--fs-h2);line-height:1.15;margin:0 0 22px}
 .hours{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
 .hours li{font-size:13px;font-weight:500;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 14px;background:var(--cream)}
 
-/* steps */
 .steps ol{list-style:none;margin:0;padding:0;counter-reset:s}
 .steps li{position:relative;padding:0 0 24px 54px;counter-increment:s}
 .steps li:last-child{padding-bottom:0}
@@ -129,7 +126,6 @@ h2{font-size:var(--fs-h2);line-height:1.15;margin:0 0 22px}
 .steps p{margin:0;font-size:15px;color:var(--muted)}
 .note{margin:26px 0 0;padding-top:20px;border-top:1px solid var(--line);font-size:var(--fs-small);color:var(--muted)}
 
-/* what to send */
 .send{margin-top:28px}
 .send-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .item{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius-field);padding:20px 18px}
@@ -137,26 +133,40 @@ h2{font-size:var(--fs-h2);line-height:1.15;margin:0 0 22px}
 .item h3{margin:0 0 6px;font-size:var(--fs-h3);font-weight:600}
 .item p{margin:0;font-size:var(--fs-small);color:var(--muted)}
 
-/* trust + quote */
 .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
 .trust div{display:flex;gap:12px;align-items:flex-start;font-size:var(--fs-small);color:var(--muted)}
 .trust svg{width:22px;height:22px;flex:none;stroke:var(--bronze);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
 .trust b{display:block;color:var(--ink);font-weight:600}
 .quote{text-align:center;margin:44px auto 0;max-width:640px;font-family:var(--serif);font-weight:600;font-size:clamp(23px,3.4vw,31px);line-height:1.3;color:var(--ink)}
 .quote small{display:block;margin-top:10px;font:500 13px var(--sans);color:var(--muted)}
-.links{margin:24px 0 0;text-align:center;font-size:var(--fs-small);font-weight:500}
-.links a{color:var(--bronze);text-underline-offset:4px;margin:0 10px;display:inline-block;padding:6px 0}
 
-/* ---------- Footer ---------- */
-footer{position:relative;z-index:1;background:var(--footer);color:#CFCAE0;padding:24px 0 calc(24px + env(safe-area-inset-bottom));font-size:13px;text-align:center}
-footer a{color:var(--gold);text-underline-offset:3px}
+footer{position:relative;z-index:1;background:var(--footer);color:var(--foot-text);border-top:3px solid var(--amber)}
+footer a{color:inherit;text-decoration:none}
+.f-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.15fr;gap:40px;padding:64px 0 48px}
+.f-brand img{width:150px;height:auto;display:block;margin:0 0 18px}
+.f-brand p{margin:0 0 22px;max-width:34ch}
+.social{display:flex;gap:12px}
+.social a{width:42px;height:42px;border-radius:50%;border:1px solid rgba(231,226,215,.28);display:grid;place-items:center;transition:border-color .15s,color .15s}
+.social a:hover{border-color:var(--foot-gold);color:var(--foot-gold)}
+.social svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.f-h{margin:0 0 22px;font:700 13px/1.2 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--foot-gold)}
+.f-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.f-list a:hover,.f-contact a:hover{color:var(--foot-gold)}
+.f-contact p{margin:0 0 14px}
+.f-bottom{border-top:1px solid var(--foot-line);padding:22px 0 calc(24px + env(safe-area-inset-bottom));display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 20px;font-size:var(--fs-small);color:var(--foot-muted)}
+.f-bottom a{color:var(--foot-muted);margin-left:22px}
+.f-bottom a:first-child{margin-left:0}
+.f-bottom a:hover{color:var(--foot-text)}
 
-/* ---------- Responsive ---------- */
 @media (max-width:1020px){
   .nav{display:none}
   .bar{justify-content:space-between}
 }
-@media (max-width:960px){.send-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:960px){
+  .send-grid{grid-template-columns:repeat(2,1fr)}
+  .f-grid{grid-template-columns:1fr 1fr;padding:48px 0 36px}
+  .f-brand{grid-column:1/-1}
+}
 @media (max-width:860px){
   .grid{grid-template-columns:1fr}
   .trust{grid-template-columns:1fr}
@@ -168,6 +178,9 @@ footer a{color:var(--gold);text-underline-offset:3px}
   .send-grid{grid-template-columns:1fr}
   main{padding:24px 0 44px}
   .btn-top span.long{display:none}
+  .f-grid{grid-template-columns:1fr;gap:32px}
+  .f-bottom{flex-direction:column}
+  .f-bottom nav a:first-child{margin-left:0}
 }
 @media (prefers-reduced-motion:reduce){
   .d{animation:none;stroke-dashoffset:0}
@@ -301,19 +314,67 @@ footer a{color:var(--gold);text-underline-offset:3px}
 
     <p class="quote">"Balance your space and choose your timing, without fear."<small>Kavach Consultancy</small></p>
 
-    <p class="links">
-      <a href="https://kavachconsultancy.com/">Home</a>
-      <a href="https://kavachconsultancy.com/services/">Our services</a>
-      <a href="https://kavachconsultancy.com/guides/">Guides</a>
-      <a href="https://kavachconsultancy.com/faq/">FAQ</a>
-    </p>
   </div>
 </main>
 
 <footer>
   <div class="wrap">
-    © 2026 Kavach Consultancy · vedang@kavachconsultancy.com ·
-    <a href="https://kavachconsultancy.com/privacy-policy/">Privacy policy</a>
+    <div class="f-grid">
+      <div class="f-brand">
+        <img src="https://kavachconsultancy.com/assets/img/logo-full.png" alt="Kavach Consultancy">
+        <p>Vastu Shastra and Vedic astrology consultancy in Dubai, founded by Vedang Joshi.</p>
+        <div class="social">
+          <a href="https://www.instagram.com/kavachconsultancy/" aria-label="Instagram" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61586480069061" aria-label="Facebook" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 8h2.5V4.5H14a3.5 3.5 0 0 0-3.5 3.5v2H8v3.5h2.5V21H14v-7.5h2.5L17 10h-3V8.5c0-.3.2-.5.5-.5z"/></svg></a>
+          <a href="https://www.reddit.com/user/kavachconsultancy/" aria-label="Reddit" rel="noopener"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="14" rx="7.5" ry="5.5"/><circle cx="9.3" cy="13.4" r=".8" fill="currentColor"/><circle cx="14.7" cy="13.4" r=".8" fill="currentColor"/><path d="M9.6 16.4c1.4 1 3.4 1 4.8 0M12 8.5l.9-4 3.3.8"/><circle cx="17.6" cy="5.6" r="1.2"/></svg></a>
+          <a href="https://share.google/yHaMccKw8Nw2kmf52" aria-label="Kavach Consultancy on Google" rel="noopener"><svg viewBox="0 0 24 24"><path d="M20 12.2h-8M18.8 7.2A7.5 7.5 0 1 0 19.5 13"/></svg></a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="f-h">Vastu</h3>
+        <ul class="f-list">
+          <li><a href="https://kavachconsultancy.com/residential-vastu-consultation-uae/">Residential Vastu</a></li>
+          <li><a href="https://kavachconsultancy.com/vastu-for-apartments-dubai/">Apartments</a></li>
+          <li><a href="https://kavachconsultancy.com/vastu-for-villas-dubai/">Villas and townhouses</a></li>
+          <li><a href="https://kavachconsultancy.com/off-plan-vastu-check-dubai/">Off-plan check</a></li>
+          <li><a href="https://kavachconsultancy.com/office-vastu-consultant-dubai/">Office, retail and restaurant</a></li>
+          <li><a href="https://kavachconsultancy.com/commercial-industrial-vastu-uae/">Warehouse, factory and hotel</a></li>
+          <li><a href="https://kavachconsultancy.com/land-vastu-consultation-uae/">Land and plot Vastu</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="f-h">Astrology</h3>
+        <ul class="f-list">
+          <li><a href="https://kavachconsultancy.com/vedic-astrologer-dubai/">Vedic astrologer in Dubai</a></li>
+          <li><a href="https://kavachconsultancy.com/kundli-consultation-dubai/">Kundli consultation</a></li>
+          <li><a href="https://kavachconsultancy.com/horoscope-consultation-uae/">Horoscope consultation</a></li>
+          <li><a href="https://kavachconsultancy.com/muhurat-consultation-uae/">Muhurat</a></li>
+          <li><a href="https://kavachconsultancy.com/numerology-name-business-dubai/">Numerology</a></li>
+          <li><a href="https://kavachconsultancy.com/guides/">Guides</a></li>
+          <li><a href="https://kavachconsultancy.com/faq/">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="f-contact">
+        <h3 class="f-h">Contact</h3>
+        <p>Kavach Consultancy</p>
+        <p>Dubai, United Arab Emirates · Consultations at your property or online</p>
+        <p><a href="tel:+971564527299">+971 56 452 7299</a> (phone and WhatsApp)</p>
+        <p><a href="mailto:vedang@kavachconsultancy.com">vedang@kavachconsultancy.com</a></p>
+        <p>Monday to Saturday, 9 am to 8 pm UAE time · Sunday by appointment</p>
+        <p><a href="https://kavachconsultancy.com/contact-us/">Contact and booking</a></p>
+      </div>
+    </div>
+
+    <div class="f-bottom">
+      <span>© 2026 Kavach Consultancy</span>
+      <nav aria-label="Legal">
+        <a href="https://kavachconsultancy.com/privacy-policy/">Privacy policy</a>
+        <a href="https://kavachconsultancy.com/terms/">Terms</a>
+      </nav>
+    </div>
   </div>
 </footer>
 
@@ -325,7 +386,6 @@ try {
   if (n) document.getElementById('who').textContent = ', ' + n;
 } catch (e) {}
 
-/* OPTIONAL: block direct visits so only real submissions see this page.
    1) On /contact-us, right before redirecting:  sessionStorage.setItem('formSubmitted','1');
    2) Then uncomment the lines below.
 
